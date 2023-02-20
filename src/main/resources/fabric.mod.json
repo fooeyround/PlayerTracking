@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "player-tracking",
+	"version": "${version}",
+	"name": "Player Tracking",
+	"description": "Track Players with a special Compass!",
+	"authors": [
+		"Jack"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/player-tracking/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "tech.lemonlime.PlayerTracking.PlayerTracking"
+		],
+		"client": [
+			"tech.lemonlime.PlayerTracking.ClientModInit"
+
+		]
+	},
+	"mixins": [
+		"player-tracking.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.14",
+		"minecraft": "~1.19.3",
+		"java": ">=17",
+		"fabric-api": "*",
+		"polymer-core": "*"
+	}
+}
