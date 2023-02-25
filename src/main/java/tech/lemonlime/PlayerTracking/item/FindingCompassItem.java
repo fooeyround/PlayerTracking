@@ -83,7 +83,7 @@ public class FindingCompassItem extends Item implements PolymerItem {
         BlockPos blockPos = user.getBlockPos();
 
 
-        PlayerEntity trackedPlayer = getPlayerFromString(world,compound.getString("tracked_player"));
+        PlayerEntity trackedPlayer = PlayerTracking.getPlayerFromString(world,compound.getString("tracked_player"));
 
         if (stack.getCount() > 1 || compound.getInt("uses") == 0 || trackedPlayer == null) {
             return TypedActionResult.fail(stack);
@@ -125,14 +125,14 @@ public class FindingCompassItem extends Item implements PolymerItem {
 
 
 
-        if (!state.isOf(ModBlocks.TRACKING_CHARGER_BLOCK) || state.get(TrackingChargerBlock.CHARGE_LEVEL) < 9 || stack.getCount() != 1 || player.getAbilities().creativeMode) {
+        if (!state.isOf(ModBlocks.TRACKING_CHARGER_BLOCK) || !state.get(TrackingChargerBlock.CHARGED) || stack.getCount() != 1 || player.getAbilities().creativeMode) {
             return ActionResult.FAIL;
 
         }
 
 
         //Take away to diamondBlock
-        world.setBlockState(blockPos,state.with(TrackingChargerBlock.CHARGE_LEVEL, state.get(TrackingChargerBlock.CHARGE_LEVEL)-9));
+        world.setBlockState(blockPos,state.with(TrackingChargerBlock.CHARGED, false));
 
 
 
@@ -234,15 +234,6 @@ public class FindingCompassItem extends Item implements PolymerItem {
 
 
 
-    public PlayerEntity getPlayerFromString(World world, String string) {
 
-        for (PlayerEntity player : world.getPlayers()) {
-            if (player.getName().getString().equalsIgnoreCase(string)) {
-                return player;
-            }
-        }
-
-        return null;
-    }
 
 }

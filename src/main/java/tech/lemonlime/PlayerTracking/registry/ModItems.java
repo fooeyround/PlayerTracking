@@ -25,6 +25,8 @@ public class ModItems {
 
     public static final Item TRACKING_CHARGER = new PolymerBlockItem(ModBlocks.TRACKING_CHARGER_BLOCK,new Item.Settings().fireproof(), Items.LODESTONE);
 
+    public static final Item TRACKINIUM_ORE = new PolymerBlockItem(ModBlocks.TRACKINIUM_ORE,new Item.Settings().fireproof(),Items.STRUCTURE_BLOCK);
+
 
 
 
@@ -40,6 +42,9 @@ public class ModItems {
 
 
         Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"tracking_charger"),TRACKING_CHARGER);
+
+        Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"trackinium_ore"),TRACKINIUM_ORE);
+
 
 
 

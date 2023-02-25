@@ -36,7 +36,9 @@ public class FindingCompassShardItem extends Item implements PolymerItem {
 
         ItemStack stack = user.getStackInHand(hand);
 
-        if (!stack.hasCustomName()) {
+        String player_id = PlayerTracking.getPlayerFromString(world,stack.getName().getString()).getUuidAsString();
+
+        if (!stack.hasCustomName() || player_id == null) {
             return TypedActionResult.fail(stack);
         }
 
@@ -45,7 +47,10 @@ public class FindingCompassShardItem extends Item implements PolymerItem {
         ItemStack new_stack = new ItemStack(ModItems.FINDING_COMPASS);
 
 
-        new_stack.setSubNbt("tracked_player", NbtString.of(stack.getName().getString()));
+
+
+
+        new_stack.setSubNbt("tracked_player", NbtString.of(player_id));
 
 
 
