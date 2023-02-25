@@ -3,7 +3,6 @@ package tech.lemonlime.PlayerTracking.item;
 import com.mojang.serialization.DataResult;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,19 +12,15 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.*;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.GlobalPos;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.poi.PointOfInterestTypes;
 import org.jetbrains.annotations.Nullable;
@@ -130,14 +125,14 @@ public class FindingCompassItem extends Item implements PolymerItem {
 
 
 
-        if (!state.isOf(ModBlocks.TRACKING_CHARGER_BLOCK) || !state.get(TrackingChargerBlock.CHARGED) || stack.getCount() != 1 || player.getAbilities().creativeMode) {
+        if (!state.isOf(ModBlocks.TRACKING_CHARGER_BLOCK) || state.get(TrackingChargerBlock.CHARGE_LEVEL) < 9 || stack.getCount() != 1 || player.getAbilities().creativeMode) {
             return ActionResult.FAIL;
 
         }
 
 
         //Take away to diamondBlock
-        world.setBlockState(blockPos,state.with(TrackingChargerBlock.CHARGED, false));
+        world.setBlockState(blockPos,state.with(TrackingChargerBlock.CHARGE_LEVEL, state.get(TrackingChargerBlock.CHARGE_LEVEL)-9));
 
 
 

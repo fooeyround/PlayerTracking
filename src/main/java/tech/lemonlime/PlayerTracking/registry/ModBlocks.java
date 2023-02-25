@@ -1,10 +1,8 @@
 package tech.lemonlime.PlayerTracking.registry;
 
+import eu.pb4.polymer.core.api.block.SimplePolymerBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
+import net.minecraft.block.*;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -19,11 +17,16 @@ public class ModBlocks {
 
     public static final Block TRACKING_CHARGER_BLOCK = new TrackingChargerBlock(FabricBlockSettings.of(Material.PORTAL).hardness(2F));
 
+    public static final Block TRACKINIUM_ORE = new SimplePolymerBlock(FabricBlockSettings.of(Material.PORTAL).hardness(4F),Blocks.STRUCTURE_BLOCK);
+
 
     public static void register() {
 
 
         Registry.register(Registries.BLOCK,new Identifier(PlayerTracking.MODID,"tracking_charger"),TRACKING_CHARGER_BLOCK);
+
+        Registry.register(Registries.BLOCK,new Identifier(PlayerTracking.MODID,"trackinium_ore"),TRACKINIUM_ORE);
+
 
 
 

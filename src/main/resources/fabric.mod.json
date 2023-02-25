@@ -12,15 +12,11 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "MIT",
-	"icon": "assets/player-tracking/icon.png",
+	"icon": "assets/playertracking/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
           "tech.lemonlime.PlayerTracking.PlayerTracking"
-		],
-		"client": [
-			"tech.lemonlime.PlayerTracking.ClientModInit"
-
 		]
 	},
 	"mixins": [
