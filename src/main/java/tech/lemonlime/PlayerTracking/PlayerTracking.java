@@ -58,7 +58,6 @@ public class PlayerTracking implements ModInitializer {
 
 		BiomeModifications.create(new Identifier(MODID, "features"))
 				.add(ModificationPhase.ADDITIONS,
-						// we want our ore possibly everywhere in the overworld
 						BiomeSelectors.foundInTheEnd(),
 						TrackiniumGen.oreModifier());
 
