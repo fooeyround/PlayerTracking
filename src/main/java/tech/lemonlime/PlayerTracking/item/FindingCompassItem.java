@@ -30,6 +30,7 @@ import tech.lemonlime.PlayerTracking.registry.ModBlocks;
 
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 public class FindingCompassItem extends Item implements PolymerItem {
     public FindingCompassItem(Settings settings) {
@@ -83,7 +84,7 @@ public class FindingCompassItem extends Item implements PolymerItem {
         BlockPos blockPos = user.getBlockPos();
 
 
-        PlayerEntity trackedPlayer = PlayerTracking.getPlayerFromString(world,compound.getString("tracked_player"));
+        PlayerEntity trackedPlayer = world.getPlayerByUuid(UUID.fromString(compound.getString("tracked_player")));
 
         if (stack.getCount() > 1 || compound.getInt("uses") == 0 || trackedPlayer == null) {
             return TypedActionResult.fail(stack);
