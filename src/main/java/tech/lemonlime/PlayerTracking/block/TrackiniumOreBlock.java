@@ -26,7 +26,7 @@ public class TrackiniumOreBlock extends ExperienceDroppingBlock implements Polym
 
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
-        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) < 5) return state;
+        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) < 5) return PolymerTexturedBlock.super.getPolymerBlockState(state);;
         return PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium_ore")));
     }
 }
