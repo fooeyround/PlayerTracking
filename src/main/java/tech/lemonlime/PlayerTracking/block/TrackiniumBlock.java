@@ -34,7 +34,7 @@ public class TrackiniumBlock extends Block implements PolymerTexturedBlock {
 
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
-        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) == 0) return PolymerTexturedBlock.super.getPolymerBlockState(state);;
+        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) == 0) return PolymerTexturedBlock.super.getPolymerBlockState(state);
         return PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium")));
     }
 
