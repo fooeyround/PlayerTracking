@@ -20,6 +20,8 @@ import java.util.List;
 public class RawTrackiniumBlock extends Block implements PolymerTexturedBlock {
 
 
+    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"raw_trackinium_block")));
+
     public RawTrackiniumBlock(Settings settings) {
             super(settings);
 
@@ -43,7 +45,7 @@ public class RawTrackiniumBlock extends Block implements PolymerTexturedBlock {
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
         if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) < 5) return PolymerTexturedBlock.super.getPolymerBlockState(state);
-        return PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"raw_trackinium_block")));
+        return modelState;
     }
 
 }

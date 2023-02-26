@@ -13,6 +13,10 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import tech.lemonlime.PlayerTracking.PlayerTracking;
 
 public class TrackiniumOreBlock extends ExperienceDroppingBlock implements PolymerTexturedBlock {
+
+
+    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium_ore")));
+
     public TrackiniumOreBlock(Settings settings) {
         super(settings, UniformIntProvider.create(3, 7));
     }
@@ -26,7 +30,7 @@ public class TrackiniumOreBlock extends ExperienceDroppingBlock implements Polym
 
     @Override
     public BlockState getPolymerBlockState(BlockState state) {
-        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) < 5) return PolymerTexturedBlock.super.getPolymerBlockState(state);
-        return PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium_ore")));
+        if (PolymerBlockResourceUtils.getBlocksLeft(BlockModelType.FULL_BLOCK) ==0) return PolymerTexturedBlock.super.getPolymerBlockState(state);
+        return modelState;
     }
 }
