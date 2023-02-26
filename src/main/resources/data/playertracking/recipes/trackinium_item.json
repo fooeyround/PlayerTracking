@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "playertracking:trackinium"
+    }
+  ],
+  "result": {
+    "item": "playertracking:trackinium_ingot",
+    "count": 9
+  }
+}

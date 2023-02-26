@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "player-tracking",
+	"id": "playertracking",
 	"version": "${version}",
 	"name": "Player Tracking",
 	"description": "Track Players with a special Compass!",

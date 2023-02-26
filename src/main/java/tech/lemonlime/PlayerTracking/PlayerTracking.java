@@ -1,21 +1,28 @@
 package tech.lemonlime.PlayerTracking;
 
+import eu.pb4.polymer.blocks.api.BlockModelType;
+import eu.pb4.polymer.blocks.api.PolymerBlockModel;
+import eu.pb4.polymer.blocks.api.PolymerBlockResourceUtils;
+import eu.pb4.polymer.resourcepack.api.PolymerModelData;
+import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.PlacedFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import tech.lemonlime.PlayerTracking.gen.TrackiniumGen;
 import tech.lemonlime.PlayerTracking.registry.ModBlocks;
 import tech.lemonlime.PlayerTracking.registry.ModItems;
-
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.UUID;
 
 public class PlayerTracking implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -26,9 +33,9 @@ public class PlayerTracking implements ModInitializer {
 	public static final String MODID = "playertracking";
 
 
-
-
-
+	//DO NOT REMOVE
+	public static final RegistryKey<ConfiguredFeature<?,?>> ORE_TRACKINIUM_CF = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(MODID, "ore_trackinium"));
+	public static final RegistryKey<PlacedFeature> ORE_TRACKINIUM_PF = RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(PlayerTracking.MODID, "ore_trackinium"));
 
 
 
@@ -52,6 +59,11 @@ public class PlayerTracking implements ModInitializer {
 		// Proceed with mild caution.
 
 
+
+
+
+
+
 		ModItems.register();
 		ModBlocks.register();
 
@@ -59,11 +71,33 @@ public class PlayerTracking implements ModInitializer {
 		BiomeModifications.create(new Identifier(MODID, "features"))
 				.add(ModificationPhase.ADDITIONS,
 						BiomeSelectors.foundInTheEnd(),
-						TrackiniumGen.oreModifier());
+						(biomeSelectionContext, biomeModificationContext) ->
+								// here we can potentially narrow our biomes down
+								// but here we won't
+								biomeModificationContext.getGenerationSettings().addFeature(
+										// ores to ores
+										GenerationStep.Feature.UNDERGROUND_ORES,
+										// this is the key of the placed feature
+										ORE_TRACKINIUM_PF));
 
 
 
 
+		PolymerResourcePackUtils.addModAssets(MODID);
+
+		PolymerResourcePackUtils.markAsRequired();
+
+
+
+		PolymerModelData trackinium_ore_modelData = PolymerResourcePackUtils.requestModel(Items.STRUCTURE_BLOCK, new Identifier(MODID, "item/trackinium_ore"));
+
+		PolymerModelData trackinium_ingot_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/trackinium_ingot"));
+
+
+		PolymerModelData raw_trackinium_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/raw_trackinium"));
+		
+
+		PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK,PolymerBlockModel.of(new Identifier(MODID,"trackinium_ore")));
 
 
 

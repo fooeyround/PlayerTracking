@@ -1,8 +1,8 @@
 {
   "type": "minecraft:ore",
   "config": {
-    "size": 8,
-    "discard_chance_on_air_exposure": 0.0,
+    "size": 16,
+    "discard_chance_on_air_exposure": 0,
     "targets": [
       {
         "target": {
@@ -10,7 +10,7 @@
           "block": "minecraft:end_stone"
         },
         "state": {
-          "Name": "minecraft:ender_chest"
+          "Name": "minecraft:stone"
         }
       }
     ]

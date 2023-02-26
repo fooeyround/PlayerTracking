@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "playertracking:raw_trackinium"
+  },
+  "result": "playertracking:trackinium_ingot",
+  "experience": 200,
+  "cookingtime": 220
+}
