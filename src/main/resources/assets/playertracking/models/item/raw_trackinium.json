@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "playertracking:items/raw_trackinium"
+    "layer0": "playertracking:item/raw_trackinium"
   }
 }

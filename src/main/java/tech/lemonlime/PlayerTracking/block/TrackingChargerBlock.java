@@ -31,11 +31,11 @@ public class TrackingChargerBlock extends Block implements PolymerBlock {
         this.setDefaultState(this.stateManager.getDefaultState().with(CHARGED, false));
     }
 
-
-    @Override
-    public String getTranslationKey() {
-        return "Tracking Charger";
-    }
+//
+//    @Override
+//    public String getTranslationKey() {
+//        return "Tracking Charger";
+//    }
 
     @Override
     public Block getPolymerBlock(BlockState state) {
@@ -51,7 +51,7 @@ public class TrackingChargerBlock extends Block implements PolymerBlock {
         stacks.add(new ItemStack(ModItems.TRACKING_CHARGER));
 
         if (state.get(CHARGED)) {
-            stacks.add(new ItemStack(ModItems.TRACKINIUM_ORE));
+            stacks.add(new ItemStack(ModItems.TRACKINIUM_BLOCK));
         }
 
         return stacks;

@@ -234,7 +234,4 @@ public class FindingCompassItem extends Item implements PolymerItem {
 
 
 
-
-
-
 }

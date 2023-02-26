@@ -26,10 +26,10 @@ public class FindingCompassShardItem extends Item implements PolymerItem {
     }
 
 
-    @Override
-    public String getTranslationKey() {
-        return "Tracking Shard (rename me)";
-    }
+//    @Override
+//    public String getTranslationKey() {
+//        return "Tracking Shard (rename me)";
+//    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

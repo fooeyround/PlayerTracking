@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "minecraft:trackinium_ore"
+              "name": "playertracking:trackinium_ore"
             },
             {
               "type": "minecraft:item",

@@ -1,7 +1,6 @@
 package tech.lemonlime.PlayerTracking.registry;
 
 import eu.pb4.polymer.core.api.item.PolymerBlockItem;
-import eu.pb4.polymer.core.api.item.SimplePolymerItem;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -11,7 +10,8 @@ import net.minecraft.util.Identifier;
 import tech.lemonlime.PlayerTracking.PlayerTracking;
 import tech.lemonlime.PlayerTracking.item.FindingCompassItem;
 import tech.lemonlime.PlayerTracking.item.FindingCompassShardItem;
-import tech.lemonlime.PlayerTracking.item.ModeledItem;
+import tech.lemonlime.PlayerTracking.item.ModeledPolymerBlockItem;
+import tech.lemonlime.PlayerTracking.item.ModeledPolymerItem;
 
 public class ModItems {
 
@@ -28,14 +28,17 @@ public class ModItems {
 
     public static final Item TRACKING_CHARGER = new PolymerBlockItem(ModBlocks.TRACKING_CHARGER_BLOCK,new Item.Settings().fireproof(), Items.LODESTONE);
 
-    public static final Item TRACKINIUM_ORE = new PolymerBlockItem(ModBlocks.TRACKINIUM_ORE,new Item.Settings().fireproof(),Items.STRUCTURE_BLOCK);
-
-    public static final Item RAW_TRACKINIUM = new ModeledItem(new Item.Settings().fireproof(),Items.DIAMOND, PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(PlayerTracking.MODID, "item/raw_trackinium")).value());
-
-    public static final Item TRACKINIUM_INGOT = new ModeledItem(new Item.Settings().fireproof(),Items.DIAMOND, PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(PlayerTracking.MODID, "item/trackinium_ingot")).value());
+    public static final Item TRACKINIUM_ORE = new ModeledPolymerBlockItem(ModBlocks.TRACKINIUM_ORE,new Item.Settings().fireproof(),Items.STRUCTURE_BLOCK,PolymerResourcePackUtils.requestModel(Items.STRUCTURE_BLOCK, new Identifier(PlayerTracking.MODID, "item/trackinium_ore")));
 
 
-    public static final Item TRACKINIUM_ITEM = new PolymerBlockItem(ModBlocks.TRACKINIUM_BLOCK,new Item.Settings().fireproof(),Items.STRUCTURE_BLOCK);
+
+    public static final Item RAW_TRACKINIUM = new ModeledPolymerItem(new Item.Settings().fireproof(),Items.DIAMOND, PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(PlayerTracking.MODID, "item/raw_trackinium")));
+
+    public static final Item RAW_TRACKINIUM_BLOCK = new ModeledPolymerBlockItem(ModBlocks.RAW_TRACKINIUM_BLOCK,new Item.Settings().fireproof(),Items.DIAMOND, PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(PlayerTracking.MODID, "item/raw_trackinium_block")));
+    public static final Item TRACKINIUM_INGOT = new ModeledPolymerItem(new Item.Settings().fireproof(),Items.DIAMOND, PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(PlayerTracking.MODID, "item/trackinium_ingot")));
+
+
+    public static final Item TRACKINIUM_BLOCK = new ModeledPolymerBlockItem(ModBlocks.TRACKINIUM_BLOCK,new Item.Settings().fireproof(),Items.STRUCTURE_BLOCK, PolymerResourcePackUtils.requestModel(Items.STRUCTURE_BLOCK, new Identifier(PlayerTracking.MODID, "item/trackinium")));
 
 
 
@@ -60,9 +63,12 @@ public class ModItems {
 
         Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"raw_trackinium"),RAW_TRACKINIUM);
 
+        Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"raw_trackinium_block"),RAW_TRACKINIUM_BLOCK);
+
+
         Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"trackinium_ingot"),TRACKINIUM_INGOT);
 
-        Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"trackinium"),TRACKINIUM_ITEM);
+        Registry.register(Registries.ITEM,new Identifier(PlayerTracking.MODID,"trackinium"), TRACKINIUM_BLOCK);
 
 
 

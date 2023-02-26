@@ -88,16 +88,17 @@ public class PlayerTracking implements ModInitializer {
 		PolymerResourcePackUtils.markAsRequired();
 
 
+//
+//		PolymerModelData trackinium_ore_modelData = PolymerResourcePackUtils.requestModel(Items.STRUCTURE_BLOCK, new Identifier(MODID, "item/trackinium_ore"));
+//
+//		PolymerModelData trackinium_ingot_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/trackinium_ingot"));
+//
+//
+//		PolymerModelData raw_trackinium_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/raw_trackinium"));
+//
+//
 
-		PolymerModelData trackinium_ore_modelData = PolymerResourcePackUtils.requestModel(Items.STRUCTURE_BLOCK, new Identifier(MODID, "item/trackinium_ore"));
 
-		PolymerModelData trackinium_ingot_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/trackinium_ingot"));
-
-
-		PolymerModelData raw_trackinium_modelData = PolymerResourcePackUtils.requestModel(Items.DIAMOND, new Identifier(MODID, "item/raw_trackinium"));
-		
-
-		PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK,PolymerBlockModel.of(new Identifier(MODID,"trackinium_ore")));
 
 
 
