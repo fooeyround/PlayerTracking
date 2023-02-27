@@ -15,7 +15,7 @@ import tech.lemonlime.PlayerTracking.PlayerTracking;
 public class TrackiniumOreBlock extends ExperienceDroppingBlock implements PolymerTexturedBlock {
 
 
-    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium_ore")));
+    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"block/trackinium_ore")));
 
     public TrackiniumOreBlock(Settings settings) {
         super(settings, UniformIntProvider.create(3, 7));

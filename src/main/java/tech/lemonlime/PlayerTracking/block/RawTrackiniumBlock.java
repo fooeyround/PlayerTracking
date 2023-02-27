@@ -20,7 +20,7 @@ import java.util.List;
 public class RawTrackiniumBlock extends Block implements PolymerTexturedBlock {
 
 
-    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"raw_trackinium_block")));
+    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"block/raw_trackinium_block")));
 
     public RawTrackiniumBlock(Settings settings) {
             super(settings);

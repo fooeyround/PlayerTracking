@@ -1,8 +1,8 @@
 {
   "type": "minecraft:ore",
   "config": {
-    "size": 16,
-    "discard_chance_on_air_exposure": 0,
+    "size": 4,
+    "discard_chance_on_air_exposure": 0.5,
     "targets": [
       {
         "target": {
@@ -10,7 +10,7 @@
           "block": "minecraft:end_stone"
         },
         "state": {
-          "Name": "minecraft:stone"
+          "Name": "playertracking:trackinium_ore"
         }
       }
     ]

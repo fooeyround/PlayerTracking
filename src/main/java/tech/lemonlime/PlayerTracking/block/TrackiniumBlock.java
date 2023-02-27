@@ -14,7 +14,7 @@ import tech.lemonlime.PlayerTracking.PlayerTracking;
 public class TrackiniumBlock extends Block implements PolymerTexturedBlock {
 
 
-    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"trackinium")));
+    public final BlockState modelState = PolymerBlockResourceUtils.requestBlock(BlockModelType.FULL_BLOCK, PolymerBlockModel.of(new Identifier(PlayerTracking.MODID,"block/trackinium")));
 
     public TrackiniumBlock(AbstractBlock.Settings settings) {
         super(settings);
