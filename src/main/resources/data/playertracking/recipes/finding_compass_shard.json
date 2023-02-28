@@ -10,7 +10,7 @@
       "item": "minecraft:gold_block"
     },
     "O": {
-      "item": "minecraft:obsidian"
+      "item": "playertracking:trackium_ingot"
     },
     "C": {
       "item": "minecraft:compass"

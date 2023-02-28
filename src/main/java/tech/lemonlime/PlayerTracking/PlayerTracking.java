@@ -9,9 +9,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
@@ -23,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tech.lemonlime.PlayerTracking.registry.ModBlocks;
 import tech.lemonlime.PlayerTracking.registry.ModItems;
+import tech.lemonlime.PlayerTracking.registry.ModRecipes;
 
 public class PlayerTracking implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
@@ -59,10 +62,7 @@ public class PlayerTracking implements ModInitializer {
 		// Proceed with mild caution.
 
 
-
-
-
-
+		ModRecipes.register();
 
 		ModItems.register();
 		ModBlocks.register();

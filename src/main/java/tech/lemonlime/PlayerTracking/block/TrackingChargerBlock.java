@@ -58,7 +58,7 @@ public class TrackingChargerBlock extends Block implements PolymerBlock {
     }
 
     private static boolean isChargeItem(ItemStack stack) {
-        return stack.isOf(ModItems.TRACKINIUM_ORE);
+        return stack.isOf(ModItems.TRACKINIUM_BLOCK);
     }
 
 

@@ -1,11 +1,13 @@
 {
-
-  "item.playertracking.trackium_ingot": "Trackinium Ingot",
-  "item.playertracking.trackium_ore": "Trackinium Ore",
-  "item.playertracking.raw_trackium": "Raw Trackinium",
-  "item.playertracking.raw_trakinium_block": "Block of Raw Trackinium",
-  "item.playertracking.trackium": "Refined Trackinium"
+  "item.playertracking.finding_compass": "Finding Compass",
+  "item.playertracking.tracking_shard": "Tracking Shard (rename me!)",
+  "block.playertracking.tracking_charger": "Tracking Charger",
 
 
 
+  "block.playertracking.trackinium_ore": "Trackinium Ore",
+  "item.playertracking.raw_trackinium": "Raw Trackinium",
+  "block.playertracking.raw_trackinium_block": "Block of Raw Trackinium",
+  "item.playertracking.trackinium_ingot": "Refined Trackinium Ingot",
+  "block.playertracking.trackinium": "Refined Trackinium"
 }

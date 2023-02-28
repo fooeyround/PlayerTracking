@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtString;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -25,6 +26,10 @@ public class FindingCompassShardItem extends Item implements PolymerItem {
         return Items.ECHO_SHARD;
     }
 
+    @Override
+    public String getTranslationKey() {
+        return Text.translatable(super.getTranslationKey()).getString();
+    }
 
 //    @Override
 //    public String getTranslationKey() {
@@ -51,6 +56,8 @@ public class FindingCompassShardItem extends Item implements PolymerItem {
 
 
         new_stack.setSubNbt("tracked_player", NbtString.of(tracked_player.getUuidAsString()));
+
+        new_stack.setCustomName(stack.getName());
 
 
 

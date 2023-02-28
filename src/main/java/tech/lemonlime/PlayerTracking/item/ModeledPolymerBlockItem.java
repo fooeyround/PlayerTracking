@@ -7,6 +7,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 public class ModeledPolymerBlockItem extends BlockItem implements PolymerItem {
@@ -27,6 +28,12 @@ public class ModeledPolymerBlockItem extends BlockItem implements PolymerItem {
     @Override
     public int getPolymerCustomModelData(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
         return this.modelData.value();
+    }
+
+
+    @Override
+    public String getTranslationKey() {
+        return Text.translatable(super.getTranslationKey()).getString();
     }
 
 

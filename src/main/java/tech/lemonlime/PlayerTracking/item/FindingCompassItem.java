@@ -16,6 +16,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -83,6 +84,8 @@ public class FindingCompassItem extends Item implements PolymerItem {
 
         BlockPos blockPos = user.getBlockPos();
 
+
+        if (compound.getString("tracked_player").length() != 36  && compound.getString("tracked_player").length() != 32) return TypedActionResult.fail(stack);
 
         PlayerEntity trackedPlayer = world.getPlayerByUuid(UUID.fromString(compound.getString("tracked_player")));
 
@@ -228,10 +231,10 @@ public class FindingCompassItem extends Item implements PolymerItem {
     }
 
 
+    @Override
     public String getTranslationKey(ItemStack stack) {
-        return stack.getOrCreateNbt().getInt("uses") > 0 ? stack.getOrCreateNbt().getInt("uses")+" "+stack.getOrCreateNbt().getString("tracked_player") : stack.getOrCreateNbt().getString("tracked_player");
+        return Text.translatable(super.getTranslationKey()).getString();
     }
-
 
 
 }
