@@ -39,7 +39,7 @@
 
 
 
-## Place the Block and right click on it with a diamond block  (Fueled looks like Repeating Command Block, and not fueled looks like normal command block)
+## Place the Block and right click on it with a Refinded Trackinium block  (Fueled looks like Repeating Command Block, and not fueled looks like normal command block)
 
 
 <img src="https://github.com/JacktheDevel0per/PlayerTracker/blob/main/docs/img/with_fuel.png?raw=true" width="128px" alt=""/>
@@ -48,7 +48,14 @@
 
 
 
-# It will drain the fuel from the block and fuel the item, if the player is online it will automatically track them once, having 1 more charge.
+## It will drain the fuel from the block and fuel the item, if the player is online it will automatically track them once, having 1 more charge.
 
 <img src="https://github.com/JacktheDevel0per/PlayerTracker/blob/main/docs/img/after_use.png?raw=true" width="128px" alt=""/>   
 
+
+
+
+
+
+
+## Obtain Trackinium ore in the end, mine to get raw trackinium ore, can be crafted into its commpacted block counterpart and back or smelted into Refinded Trackinium Ingots, that can be crafted into A Trackinium Block like any other Mineral/ore
