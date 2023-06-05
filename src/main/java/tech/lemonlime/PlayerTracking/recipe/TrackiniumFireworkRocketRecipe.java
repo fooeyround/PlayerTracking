@@ -5,11 +5,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.recipe.FireworkRocketRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SpecialCraftingRecipe;
 import net.minecraft.recipe.book.CraftingRecipeCategory;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import tech.lemonlime.PlayerTracking.registry.ModItems;
@@ -60,7 +60,10 @@ public class TrackiniumFireworkRocketRecipe extends SpecialCraftingRecipe {
         return hasTrackiniumIngot && hasPaper && i >= 1;
     }
 
-    public ItemStack craft(CraftingInventory craftingInventory) {
+
+
+
+    public ItemStack craft(CraftingInventory craftingInventory,DynamicRegistryManager dynamicRegistryManager) {
         ItemStack itemStack = new ItemStack(Items.FIREWORK_ROCKET, 3);
         NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("Fireworks");
         NbtList nbtList = new NbtList();
@@ -92,7 +95,7 @@ public class TrackiniumFireworkRocketRecipe extends SpecialCraftingRecipe {
         return width * height >= 2;
     }
 
-    public ItemStack getOutput() {
+    public ItemStack getOutput(DynamicRegistryManager dynamicRegistryManager) {
         return new ItemStack(Items.FIREWORK_ROCKET);
     }
 
