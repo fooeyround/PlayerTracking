@@ -18,15 +18,15 @@ public class ModBlocks {
 
 
 
-    public static final Block TRACKING_CHARGER_BLOCK = new TrackingChargerBlock(FabricBlockSettings.of(Material.PORTAL).hardness(6F).requiresTool());
+    public static final Block TRACKING_CHARGER_BLOCK = new TrackingChargerBlock(FabricBlockSettings.create().hardness(6F).requiresTool());
 
-    public static final Block TRACKINIUM_ORE = new TrackiniumOreBlock(FabricBlockSettings.of(Material.PORTAL).hardness(3.6F).requiresTool());
-
-
-    public static final Block RAW_TRACKINIUM_BLOCK = new RawTrackiniumBlock(FabricBlockSettings.of(Material.PORTAL).hardness(4F).requiresTool());
+    public static final Block TRACKINIUM_ORE = new TrackiniumOreBlock(FabricBlockSettings.create().hardness(3.6F).requiresTool());
 
 
-    public static final Block TRACKINIUM_BLOCK = new TrackiniumBlock(FabricBlockSettings.of(Material.PORTAL).hardness(5F).requiresTool());
+    public static final Block RAW_TRACKINIUM_BLOCK = new RawTrackiniumBlock(FabricBlockSettings.create().hardness(4F).requiresTool());
+
+
+    public static final Block TRACKINIUM_BLOCK = new TrackiniumBlock(FabricBlockSettings.create().hardness(5F).requiresTool());
 
 
     public static void register() {

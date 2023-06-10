@@ -1,6 +1,7 @@
 package tech.lemonlime.PlayerTracking.recipe;
 
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -26,13 +27,13 @@ public class TrackiniumFireworkRocketRecipe extends SpecialCraftingRecipe {
         super(id, category);
     }
 
-    public boolean matches(CraftingInventory craftingInventory, World world) {
+    public boolean matches(RecipeInputInventory inventory, World world) {
         boolean hasPaper = false;
         boolean hasTrackiniumIngot = false;
         int i = 0;
 
-        for(int j = 0; j < craftingInventory.size(); ++j) {
-            ItemStack itemStack = craftingInventory.getStack(j);
+        for(int j = 0; j < inventory.size(); ++j) {
+            ItemStack itemStack = inventory.getStack(j);
             if (!itemStack.isEmpty()) {
                 if (PAPER.test(itemStack)) {
                     if (hasPaper) {
@@ -63,14 +64,14 @@ public class TrackiniumFireworkRocketRecipe extends SpecialCraftingRecipe {
 
 
 
-    public ItemStack craft(CraftingInventory craftingInventory,DynamicRegistryManager dynamicRegistryManager) {
+    public ItemStack craft(RecipeInputInventory inventory, DynamicRegistryManager registryManager) {
         ItemStack itemStack = new ItemStack(Items.FIREWORK_ROCKET, 3);
         NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("Fireworks");
         NbtList nbtList = new NbtList();
         int i = 0;
 
-        for(int j = 0; j < craftingInventory.size(); ++j) {
-            ItemStack itemStack2 = craftingInventory.getStack(j);
+        for(int j = 0; j < inventory.size(); ++j) {
+            ItemStack itemStack2 = inventory.getStack(j);
             if (!itemStack2.isEmpty()) {
                 if (DURATION_MODIFIER.test(itemStack2)) {
                     ++i;
@@ -90,6 +91,9 @@ public class TrackiniumFireworkRocketRecipe extends SpecialCraftingRecipe {
 
         return itemStack;
     }
+
+
+
 
     public boolean fits(int width, int height) {
         return width * height >= 2;
