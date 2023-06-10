@@ -6,6 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.context.LootContext;
@@ -19,6 +22,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import tech.lemonlime.PlayerTracking.PlayerTracking;
 import tech.lemonlime.PlayerTracking.registry.ModItems;
 
 import java.util.ArrayList;
@@ -67,8 +71,21 @@ public class TrackingChargerBlock extends Block implements PolymerBlock {
 
     @Override
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
-        entity.addVelocity(0,1,0);
+        super.onLandedUpon(world, state, pos, entity, fallDistance);
+
+        if (!state.get(CHARGED)) return;
+        if (entity instanceof LivingEntity livingEntity) {
+            StatusEffectInstance slowness = new StatusEffectInstance(StatusEffects.SLOWNESS, 100, 5, false, false);
+            StatusEffectInstance absorbtion = new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 5, false, false);
+
+            livingEntity.addStatusEffect(slowness, null);
+            livingEntity.addStatusEffect(absorbtion, null);
+
+
+        }
     }
+
+
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
