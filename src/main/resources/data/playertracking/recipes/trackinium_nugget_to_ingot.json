@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "playertracking:trackinium_nugget"
+    }
+  },
+  "result": {
+    "item": "playertracking:trackinium_ingot",
+    "count": 1
+  }
+}
